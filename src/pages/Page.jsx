@@ -7,10 +7,6 @@ import { Link } from "react-router-dom";
 
 export default class Page extends React.Component {
 
-	state = {
-	};
-
-
 	checkNextPage() {
 		let nextRooms = this.getPage(parseInt(this.props.page)+1);
 		if(nextRooms.length > 0) {
@@ -52,12 +48,11 @@ export default class Page extends React.Component {
 			<div className="component-app">
 			{this.getPage(this.props.page).map((cycle, index) => {
 				return (
-				<div className="container" key={index}>
-					<Card data={cycle} />
-				</div>
-						);
-					})
-				}
+					<div className="container" key={index}>
+						<Card data={cycle} />
+					</div>
+				);
+			})}
 				<div className="buttons">
 					{this.props.page > 1 ? <Link className="button prev" to={'/'+(parseInt(this.props.page)-1)}>Prev</Link> : null}
 					{this.checkNextPage() ? <Link className="button next" to={'/'+(parseInt(this.props.page)+1)}>Next</Link> : null}

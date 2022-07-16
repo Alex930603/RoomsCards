@@ -10,9 +10,8 @@ export default class Card extends React.Component {
 		let price = this.props.data.pricing.monthlyStandardPrice;
 		price = price? price+' €' : 'Prezzo non disponibile.';
 
-		let m2 = this.props.data.mq_appartment;
-		let availability;
-
+		let m2 = this.props.data.mq+' mq';
+		let availability = 'Dal '+this.props.data.availabilities.available_from+' al '+this.props.data.availabilities.available_to;
 
 		return (
 			<div className="wrap">
